@@ -1,6 +1,6 @@
 
 class DynamicArray:
-
+    
     def __init__(self):
         self.length = 0
         self.capacity = 1
@@ -35,16 +35,32 @@ class DynamicArray:
 
         # Actualizamos la capacidad
         self.capacity = new_capacity
+        
+    def get(self, index):
+        if 0<= index < self.length:
+            return self.data[index]            
+        else:
+            raise IndexError("Índice fuera de rango")
+        
+    def set(self, index, value):
+        if index < 0 or index >= self.length:
+            raise IndexError("Índice fuera de rango")
+        else:
+            self.data[index] = value
+            
+            
+        
+        
+        
 
 
-# Prueba del programa
 arr = DynamicArray()
 
-for i in range(10):
-    arr.append(i)
+arr.append(10)
+arr.append(20)
+arr.append(30)
 
-    print(
-        f"Longitud: {arr.length}, "
-        f"Capacidad: {arr.capacity}, "
-        f"Datos: {arr.data}"
-    )
+arr.set(1, 50)
+
+print(arr.data)
+exit()
