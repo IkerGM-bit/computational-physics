@@ -47,6 +47,30 @@ class DynamicArray:
             raise IndexError("Índice fuera de rango")
         else:
             self.data[index] = value
+    
+    def insert(self, index, value):
+
+    # Comprobamos que el índice sea válido
+        if index < 0 or index > self.length:
+            raise IndexError("Índice fuera de rango")
+
+    # Si no hay espacio, ampliamos la capacidad
+        if self.length == self.capacity:
+            self.resize()
+
+    # Desplazamos los elementos hacia la derecha
+        for i in range(self.length, index, -1):
+            self.data[i] = self.data[i - 1]
+
+    # Insertamos el nuevo valor
+        self.data[index] = value
+
+    # Aumentamos la longitud
+        self.length += 1
+
+    
+                
+    
             
             
         
