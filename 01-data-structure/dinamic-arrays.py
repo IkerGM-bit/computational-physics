@@ -67,24 +67,36 @@ class DynamicArray:
 
     # Aumentamos la longitud
         self.length += 1
+    
+    
+    def remove(self, index):
+
+    # Comprobamos que el índice sea válido
+        if index < 0 or index >= self.length:
+            raise IndexError("Índice fuera de rango")
+
+    # Desplazamos los elementos hacia la izquierda
+        for i in range(index, self.length - 1):
+            self.data[i] = self.data[i + 1]
+
+    # Limpiamos la última posición ocupada
+        self.data[self.length - 1] = None
+
+    # Reducimos la longitud
+        self.length -= 1
+
 
     
                 
     
             
-            
-        
-        
-        
-
-
 arr = DynamicArray()
 
-arr.append(10)
-arr.append(20)
-arr.append(30)
+for x in [10, 20, 30, 40]:
+    arr.append(x)
 
-arr.set(1, 50)
+arr.remove(1)
 
 print(arr.data)
-exit()
+print(arr.length)
+print(arr.capacity)
