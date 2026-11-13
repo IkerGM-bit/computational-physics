@@ -14,5 +14,10 @@ c = Node(30)
 a.next = b
 b.next = c
 
-print(a)
+current = a
 
+
+# Completa el bucle:
+while current != None:
+    print(current.value)
+    current = current.next
