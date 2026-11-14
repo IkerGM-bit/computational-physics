@@ -4,20 +4,33 @@ class Node:
         self.value = value
         self.next = None
         pass
-    
-a = Node(10)
-b = Node(20)
-c = Node(30)
 
 
+def append(self, value):
 
-a.next = b
-b.next = c
+    new_node = Node(value)
 
-current = a
+    if self.head is None:
+        self.head = new_node
 
+    else:
+        current = self.head
 
-# Completa el bucle:
-while current != None:
+        while current.next is not None:
+            current = current.next
+
+        current.next = new_node
+
+    self.length += 1
+
+lista = LinkedList()
+
+lista.append(10)
+lista.append(20)
+lista.append(30)
+
+current = lista.head
+
+while current is not None:
     print(current.value)
     current = current.next
