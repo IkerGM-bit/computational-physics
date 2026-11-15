@@ -1,28 +1,37 @@
 class Node:
-    
+
     def __init__(self, value):
         self.value = value
         self.next = None
-        pass
 
 
-def append(self, value):
+class LinkedList:
 
-    new_node = Node(value)
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
 
-    if self.head is None:
-        self.head = new_node
+    def append(self, value):
 
-    else:
-        current = self.head
+        # Creamos el nuevo nodo
+        new_node = Node(value)
 
-        while current.next is not None:
-            current = current.next
+        # Caso 1: la lista está vacía
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
 
-        current.next = new_node
+        # Caso 2: ya existen nodos
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
 
-    self.length += 1
+        # Aumentamos la longitud
+        self.length += 1
 
+
+# Probamos nuestra lista
 lista = LinkedList()
 
 lista.append(10)
